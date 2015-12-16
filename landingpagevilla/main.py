@@ -42,9 +42,12 @@ import logging
 
 class SendComments(webapp2.RequestHandler):
         def post(self):
-                jdata =json.loads(cgi.escape(self.request.body))
-		enviarCorreo(jdata["name"],jdata["email"],jdata["phone"],jdata["message"])
-		self.response.out.write("send")
+	    name =cgi.escape(self.request.get("name"))
+            email=cgi.escape(self.request.get("email"))
+            phone =cgi.escape(self.request.get("phone"))
+            message =cgi.escape(self.request.get("message"))
+            enviarCorreo(name,email,phone,message)
+            self.response.out.write("send")
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):

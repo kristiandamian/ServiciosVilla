@@ -1,9 +1,9 @@
 from google.appengine.api import mail
 
-def enviarCorreo(nombre, correo, titulo, mensaje):
+def enviarCorreo(nombre, correo, phone, mensaje):
 	mail.send_mail(sender="serviciosvilla.com Support <serviciosvilla88@gmail.com>",
-		       to="Daniel Diaz<danieldiaz@getwell.care>; Vaqueton <kristiandamian@getwell.care>",
-		       subject="Un nuevo comentario en serviciosvilla.com de "+nombre,
+		       to="kristian <kristiandamian@gmail.com>",
+		       subject="Un nuevo comentario en serviciosvilla.com de: "+nombre,
                        body="""
 	Hola Patricia:
 
@@ -11,7 +11,7 @@ def enviarCorreo(nombre, correo, titulo, mensaje):
 
 	Nombre: """+nombre+"""
 	Correo: """+correo+"""
-	Telefono: """+titulo+"""
+	Telefono: """+phone+"""
 	Mensaje: """+mensaje+"""
 
         Saludos""")
